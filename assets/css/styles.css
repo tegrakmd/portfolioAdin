@@ -1,0 +1,270 @@
+:root {
+  --max-width: 1200px;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Emerland;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+html {
+  background-color: #fff;
+}
+body {
+  width: 100%;
+  height: 100%;
+  min-width: 300px;
+  color: #111;
+  scroll-behavior: smooth;
+}
+/* variables */
+a {
+  text-decoration: none;
+}
+button {
+  outline: none;
+  background-color: transparent;
+  border: none;
+}
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* Nav */
+nav {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+.nav_container {
+  display: flex;
+  align-items: center;
+  padding: 0.4em;
+  margin-top: 1em;
+  justify-content: center;
+  gap: 0.5em;
+  border: 1px solid #cecdcd;
+  border-radius: 8px;
+  background: white;
+}
+.logo {
+  border: 1px solid #cecdcd;
+  border-radius: 8px;
+  padding: 0.2em 0.4em;
+}
+.logo img {
+  width: 30px;
+}
+.nav_links {
+  border-left: 1px solid #cecdcd;
+  border-right: 1px solid #cecdcd;
+  padding: 0 1.5em;
+}
+.nav_links .nav_link {
+  color: #111;
+}
+.btn_nav_item {
+  background-color: #111;
+  padding: 0.6em 1.5em;
+  border-radius: 8px;
+  color: #e0e0e0;
+}
+/*  */
+.hero_container {
+  max-width: var(--max-width);
+  padding: 1rem;
+  margin: 0 auto;
+  width: 100%;
+  height: 70dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+.hero_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  margin: 0 auto;
+  width: 100%;
+}
+.avatars {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.avatars .img {
+  height: 4em;
+  width: 4em;
+  overflow: hidden;
+  border-radius: 50%;
+}
+.text_hero em {
+  font-weight: 200;
+}
+.text_hero {
+  font-size: clamp(1.4em, 3.5em, 8vw);
+  line-height: 1;
+  font-family: offbit Trial;
+  letter-spacing: -2px;
+}
+.available {
+  color: green;
+  margin-top: 0.5em;
+}
+.link_hero_btn {
+  width: 100%;
+}
+.hero_btn {
+  background-color: #111;
+  padding: 1.5em 0;
+  border-radius: 10px;
+  color: #e0e0e0;
+  width: 100%;
+}
+
+/* Marquee */
+
+.container {
+  display: flex;
+  /* min-height: 100vh; */
+  align-items: center;
+  width: 100%;
+  overflow: hidden;
+}
+
+.mask-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.top-overlay,
+.bottom-overlay {
+  position: absolute;
+  left: -0.25rem;
+  right: -0.25rem;
+  z-index: 2;
+  height: 50%;
+  background: white;
+  border-radius: 100%;
+  transform: scaleX(1.25) scaleY(0.75);
+}
+
+.top-overlay {
+  top: -30.5%;
+}
+
+.bottom-overlay {
+  bottom: -30.5%;
+}
+
+.marquee-container {
+  width: 100%;
+  display: flex;
+  animation: marquee 25s linear infinite;
+}
+
+.image-grid {
+  display: grid;
+  height: 20rem;
+  width: 450vw;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+  gap: 0.25rem;
+  flex-shrink: 0;
+}
+
+img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.wide {
+  grid-column: span 2;
+}
+
+.position-top {
+  object-position: top;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@media (min-width: 640px) {
+  .hero_container {
+    padding: 1rem;
+  }
+  .hero_wrapper {
+    width: max-content;
+  }
+  .marquee-container {
+    animation-duration: 20s;
+  }
+  .image-grid {
+    height: 40rem;
+    width: 300vw;
+  }
+  .hero_container {
+    height: 60dvh;
+    padding: 1rem;
+  }
+  /*  */
+
+  .whatyouwant_container {
+    max-width: var(--max-width);
+
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .whatyouwant_wrapper {
+    padding: 2rem;
+  }
+
+  @media (min-width: 1280px) {
+    .marquee-container {
+      animation-duration: 15s;
+    }
+    .image-grid {
+      height: 100vh;
+    }
+    .container {
+      min-height: 100vh;
+    }
+  }
+
+  @media (min-width: 1536px) {
+    .top-overlay,
+    .bottom-overlay {
+      transform: scaleX(1.25) scaleY(0.95);
+    }
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(
+        calc(-100% * (10 / 10))
+      ); /* 10 images sur 11 colonnes */
+    }
+  }
+}
+/*  */
